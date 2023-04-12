@@ -1,5 +1,5 @@
 function doSearch(searchValue, advanced) {
-	var url = "https://apptest/mapproxy/elasticsearch_service";
+	var url = "https://www.geoportal.lt/mapproxy/elasticsearch_service";
 	if (advanced) {
 		var params = getQueryParams(searchValue, false);
 		fetch(url, {

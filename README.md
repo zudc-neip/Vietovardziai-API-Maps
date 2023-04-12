@@ -46,11 +46,11 @@ Projekto api.js ir sidebar.js failai yra bendri visoms žemėlapių naršyklėms
 
 ### Elastiseach servisas
 
-GV_DRLT paieškos servisas pasiekiamas adresu https://apptest/mapproxy/elasticsearch_service. Tai adresas į Elastisearch API _search metodą. Naudodami šį metodą GET užklausų pagalba galite vykdyti įvairaus sudėtingumo paiešką GV_DRLT rinkinyje. Daugiau informacijos apie Elastisearch paieškos galimybes rasite [čia](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html).
+GV_DRLT paieškos servisas pasiekiamas adresu https://www.geoportal.lt/mapproxy/elasticsearch_service. Tai adresas į Elastisearch API _search metodą. Naudodami šį metodą GET užklausų pagalba galite vykdyti įvairaus sudėtingumo paiešką GV_DRLT rinkinyje. Daugiau informacijos apie Elastisearch paieškos galimybes rasite [čia](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html).
 
 Užklausos, kuri vykdytų paiešką GV_DRLT atribute 'name' pagal paieškos frazę 'Kaunas' pvz.:
 ```
-https://apptest/mapproxy/elasticsearch_service?q=kaunas
+https://www.geoportal.lt/mapproxy/elasticsearch_service?q=kaunas
 ```
 
 ## Autoriai
