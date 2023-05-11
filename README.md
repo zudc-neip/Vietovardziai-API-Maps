@@ -8,7 +8,7 @@ Nacionalinės žemės tarnybos erdvinių duomenų rinkinio GV_DRLT paieškos ser
 
 Su GV_DRLT duomenų rinkinio specifikacija galite susipažinti [čia](https://www.geoportal.lt/download/Specifikacijos/GV_DRLT-duomenu-specifikacija.pdf). Taip pat [vietovardžių el. paslaugos internetiniame puslapyje](https://www.geoportal.lt/vietovardziai/) susipažinti su GV_DRLT pagrindu veikiančiomis ir teikiamomis paslaugomis.
 
-GV_DRLT duomenų rinkinio Elasticsearch paieškos serviso grąžinami rezultatai:
+GV_DRLT duomenų rinkinio paieškos grąžinami rezultatai:
 * sourceid
 * namestatus
 * sourcedata
@@ -33,7 +33,7 @@ GV_DRLT duomenų rinkinio Elasticsearch paieškos serviso grąžinami rezultatai
 
 ## Kaip pradėti
 
-Klonuokite šį projektą pas save lokalioje darbo vietoje. Projekto failus galite patalpinti tiesiai į interneto serverį (pvz. Apache) ir peržiūrėti veikiančias 3 tipų žemėlapių naršykles su GV_DRLT duomenų rinkinio Elasticsearch paieškos serviso integracija.
+Klonuokite šį projektą į savo lokalią darbo vietą. Projekto failus galite patalpinti tiesiai į interneto serverį (pvz. Apache) ir peržiūrėti veikiančias 3 tipų žemėlapių naršykles su GV_DRLT duomenų rinkinio Elasticsearch paieškos serviso integracija.
 
 ### Žemėlapių naršyklių API
 
@@ -42,18 +42,18 @@ GV_DRLT paieškos serviso integracijos pavyzdžiai parengti šioms žemėlapių 
 * [Leaflet](https://leafletjs.com/)
 * [ESRI JS](https://developers.arcgis.com/javascript/)
 
-Projekto api.js ir sidebar.js failai yra bendri visoms žemėlapių naršyklėms. Juos pateikiama bendra kreipimosi į Elastisearch servisą logika, rezultatų apdorojimas bei pateikimas sąrašu žemėlapių naršyklės grafinėje naudotojo sąsajoje. Šie failai nėra pritaikyti konkrečiam žemėlapių naršyklės API, todėl jų pagalba GV_DRLT paiešką galite integruoti į daugelį JS pagrindu veikiančių žemėlapių aplikacijų.
+Projekto api.js ir sidebar.js failai yra bendri visoms žemėlapių naršyklėms. Juose pateikiama bendra paieškos logika, rezultatų apdorojimas bei pateikimas sąrašu žemėlapių naršyklės grafinėje naudotojo sąsajoje. Šie failai nėra pritaikyti konkrečiam žemėlapių naršyklės API, todėl, juos naudojant, GV_DRLT paiešką galite integruoti į daugelį JS pagrindu veikiančių žemėlapių aplikacijų.
+Paieška vykdoma kreipiantis į tarpinį servisą GET protokolu adresu https://www.geoportal.lt/mapproxy/elasticsearch_service. Paieškos žodis siunčiamas kaip parametras, pvz.: q=kaunas.
+Užklausos į tarpinį servisą pavyzdys: https://www.geoportal.lt/mapproxy/elasticsearch_service?q=kaunas.
+Tarpinis servisas, gavęs paieškos žodį, suformuoja užklausą (užklausa-1.txt, užklausa-3.txt), kreipiasi į Elasticsearch API _search metodą ir grąžina rezultatą.
 
-### Elastiseach servisas
+### Elasticsearch API _search
 
-GV_DRLT paieškos servisas pasiekiamas adresu https://www.geoportal.lt/mapproxy/elasticsearch_service. Tai adresas į Elastisearch API _search metodą. Naudodami šį metodą GET užklausų pagalba galite vykdyti įvairaus sudėtingumo paiešką GV_DRLT rinkinyje. Daugiau informacijos apie Elastisearch paieškos galimybes rasite [čia](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html).
+GV_DRLT paieškos servisas pasiekiamas adresu https://www.geoportal.lt/mapproxy/elasticsearch_gvdr. Tai adresas į Elasticsearch API _search metodą. Naudodami šį metodą POST užklausų pagalba galite vykdyti įvairaus sudėtingumo paiešką GV_DRLT rinkinyje. Daugiau informacijos apie Elasticsearch paieškos galimybes rasite [čia](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html).
 
-Užklausos, kuri vykdytų paiešką GV_DRLT atribute 'name' pagal paieškos frazę 'Kaunas' pvz.:
-```
-https://www.geoportal.lt/mapproxy/elasticsearch_service?q=kaunas
-```
+Užklausų, kurios vykdytų paiešką GV_DRLT atributuose 'name', 'namegenitive' ir 'municipality' pagal paieškos frazę pavyzdžiai pateikiami failuose užklausa-1.txt, užklausa-2.txt ir užklausa-3.txt.
 
 ## Autoriai
 
-* [VĮ GIS-Centras](http://www.gis-centras.lt) - projekto autoriai
-* [Nacionalinė žemės tarnyba prie Žemės ūkio ministracijos](http://www.nzt.lt) - GV_DRLT duomenų rinkinio valdytojai
+* [VĮ „GIS-Centras“, nuo 2023-01-03 VĮ Žemės ūkio duomenų centras](https://www.gis-centras.lt) - projekto autorius
+* [Nacionalinė žemės tarnyba prie aplinkos ministerijos](https://www.nzt.lt) - GV_DRLT duomenų rinkinio valdytojas
