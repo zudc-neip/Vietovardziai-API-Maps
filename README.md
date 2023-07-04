@@ -52,11 +52,11 @@ Tarpinis servisas, gavęs paieškos žodį, suformuoja užklausą (užklausa-1.t
 GV_DRLT paieškos servisas pasiekiamas adresu https://www.geoportal.lt/mapproxy/elasticsearch_gvdr. Tai adresas į Elasticsearch API _search metodą. Naudodami šį metodą POST užklausomis galite vykdyti įvairaus sudėtingumo paiešką GV_DRLT rinkinyje. Daugiau informacijos apie Elasticsearch paieškos galimybes rasite [čia](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html).
 
 Paieška GV_DRLT rinkinyje galima pagal šiuos atributus:
-* Analizuojami (Tipas - text. Paieška vyks tiek su tikslia reikšme, tiek su apytiksle reikšme.):
+Analizuojami (Tipas - text. Paieška vyks tiek su tikslia reikšme, tiek su apytiksle reikšme.):
 - municipality
 - name
 - namegenitive
-* Neanalizuojami (Tipas - keyword. Paieška vyks tik su tikslia reikšme. Galima naudoti filtrams.):
+Neanalizuojami (Tipas - keyword. Paieška vyks tik su tikslia reikšme. Galima naudoti filtrams.):
 - geometryType
 - localtype
 - subtype
